@@ -9,19 +9,48 @@
 std::string words[30];
 int points;
 void setWords();
+void playGame(int, int, int, int);
 
 int main()
 {
 	setWords();
-	std::string word;
+	
 	int draw = 0;
 	int prevI = -1;
 	int prevII = -2;
 	int prevIII = -3;
 	int i = 0;
-	while (i < 10)
+			
+	while (draw == prevI || draw == prevII || draw == prevIII)
 	{
+		draw = rand() % 29 + 0;
+		if (draw == prevI || draw == prevII || draw == prevIII)
+		{
+			draw = rand() % 29 + 0;
+		}
+	}
+
+	playGame(draw, prevI, prevII, prevII);
 		
+	return 0;
+}
+
+void playGame(int draw, int prevI, int prevII, int prevIII)
+{
+	int continueGame;
+	std::string word;
+	word = words[draw];
+	std::cout << word << std::endl;
+
+	std::cout << "Would you like to play again (1 to play again, 2 to end the game)?" << std::endl;
+	std::cout << "Play again: ";
+	std::cin >> continueGame;
+
+	if (continueGame == 1)
+	{
+		prevIII = prevII;
+		prevII = prevI;
+		prevI = draw;
 		while (draw == prevI || draw == prevII || draw == prevIII)
 		{
 			draw = rand() % 29 + 0;
@@ -30,14 +59,14 @@ int main()
 				draw = rand() % 29 + 0;
 			}
 		}
-		word = words[draw];
-		std::cout << word << std::endl;
-		prevIII == prevII;
-		prevII == prevI;
-		prevI = draw;
-		i++;
+
+		playGame(draw, prevI, prevII, prevII);
 	}
-	return 0;
+
+	else
+	{
+		std::cout << "okay, thanks for playing!" << std::endl;
+	}
 }
 
 void setWords()
