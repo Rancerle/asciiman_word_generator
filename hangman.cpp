@@ -1,6 +1,6 @@
 //Created by: Reilly Q. Curran
-//last edited: 11/11/2016
-//last compiled: 11/11/2016
+//last edited: 11/23/2016
+//last compiled: 11/23/2016
 
 #include<iostream>
 #include<string>
