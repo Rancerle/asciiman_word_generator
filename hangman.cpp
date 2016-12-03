@@ -38,6 +38,7 @@ int main()
 	int prevIII = -3;
 	// an initialized score for the function call
 	int score = 0;
+	srand(time(NULL));
 	//----------------------------------
 	
 	//prevents a random number call from being the same as it was in the last three games
@@ -82,6 +83,7 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 	//*************************
 
 	//displays the games the player has won
+	std::cout << std::endl;
 	std::cout << "Games Won: " << score << std::endl;
 	
 	while (i < wordChosen.length())
@@ -95,8 +97,9 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 	{
 		failCheck = 0;
 		//displays the mystery characters (for test purposes it displays the word right now)
-		std::cout << wordChosen + mystery << std::endl;
+		std::cout << mystery << std::endl;
 		//displays the users remaining chances and asks what they would like to do
+		std::cout << std::endl;
 		std::cout << "You have " << chances + 1 << " guesses left." << std::endl;
 		std::cout << "Would you like to guess a letter or try to guess the word?" << std::endl;
 		std::cout << "(1: guess a letter, 2: guess the word): ";
@@ -105,6 +108,7 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 		switch (risk) //lets the user choose between playing normally, or risking the game on trying to guess the whole word
 		{
 		case 1: //Plays game as usual
+			std::cout << std::endl;
 			std::cout << "Guess a letter: ";
 			std::cin >> guess;
 			//compares the user's guess to the characters in the string
@@ -125,63 +129,147 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 			//win, lose, continue conditions
 			if (mystery == wordChosen)//if the user has completed the word
 			{
+				std::cout << std::endl;
 				std::cout << "Correct!  The word was " << wordChosen << ". " << std::endl;
 				score++;
 				win++;
 			}
 			else if (failCheck == mystery.length())//if the user guessed a wrong letter
 			{
+				std::cout << std::endl;
 				std::cout << "That was not a correct letter." << std::endl;
 				if (chances == 6)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == 5)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == 4)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == 3)
 				{
 					std::cout << "You seem to be having trouble, here's a hint!" << std::endl;
 					std::cout << words[draw].hint << std::endl;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "| /   " << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					chances--;
 					break;
 				}
 				else if (chances == 2)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "| / \\" << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == 1)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "|  |\\" << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "| / \\" << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == 0)
 				{
 					chances--;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|     " << std::endl;
+					std::cout << "| /|\\" << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "| / \\" << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					break;
 				}
 				else if (chances == -1) // if the user lost
 				{
 					std::cout << "Sorry, but the correct word was " << wordChosen << std::endl;
+					std::cout << std::endl;
+					std::cout << "___   " << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "|  O  " << std::endl;
+					std::cout << "| /|\\" << std::endl;
+					std::cout << "|  |  " << std::endl;
+					std::cout << "| / \\" << std::endl;
+					std::cout << "|_____" << std::endl;
+					std::cout << "|    |" << std::endl;
+					std::cout << std::endl;
 					lose++;
 				}
 			}
 			break;
-		case 2: //prompts the user to guess the full word 
+		case 2: //prompts the user to guess the full word
+			std::cout << std::endl;
 			std::cout << "Alright, what's the word?: ";
 			std::cin >> guessWord;
 			if (guessWord == wordChosen)
 			{
 				// the player gussed the correct word
+				std::cout << std::endl;
 				std::cout << "That is correct!  You Win!" << std::endl;
 				score++;
 				win++;
@@ -189,16 +277,29 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 			else
 			{
 				//the user guessed incorrectly
+				std::cout << std::endl;
 				std::cout << "Nope!  You Lose!" << std::endl;
+				std::cout << std::endl;
+				std::cout << "___   " << std::endl;
+				std::cout << "|  |  " << std::endl;
+				std::cout << "|  O  " << std::endl;
+				std::cout << "| /|\\" << std::endl;
+				std::cout << "|  |  " << std::endl;
+				std::cout << "| / \\" << std::endl;
+				std::cout << "|_____" << std::endl;
+				std::cout << "|    |" << std::endl;
+				std::cout << std::endl;
 				lose++;
 			}
 			break;
 		default: //prevents the user from choosing outside the given options
+			std::cout << std::endl;
 			std::cout << "I am sorry, this was not one of the given choices." << std::endl;
 			break;
 		}
 	}
 	//asks the user if they want to play again
+	std::cout << std::endl;
 	std::cout << "Would you like to play again (1 to play again, 2 to end the game)?" << std::endl;
 	std::cout << "Play again: ";
 	std::cin >> continueGame;
@@ -225,6 +326,7 @@ void playGame(int draw, int prevI, int prevII, int prevIII, int score)
 	//quits the game
 	else
 	{
+		std::cout << std::endl;
 		std::cout << "okay, thanks for playing!" << std::endl;
 	}
 }
